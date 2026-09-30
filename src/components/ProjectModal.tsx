@@ -175,13 +175,13 @@ export default function ProjectModal({
               onClick={() => setActiveTab(key)}
               className={`pb-3 px-3 text-xs sm:text-sm font-semibold transition-all relative shrink-0 cursor-pointer ${
                 activeTab === key
-                  ? "text-blue-600 font-bold"
+                  ? "text-[#6D5DFB] font-bold"
                   : "text-slate-500 hover:text-slate-800"
               }`}
             >
               {item.title}
               {activeTab === key && (
-                <span className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-blue-600 rounded-full" />
+                <span className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-[#6D5DFB] rounded-full" />
               )}
             </button>
           ))}
@@ -200,10 +200,10 @@ export default function ProjectModal({
         {/* Scrollable Project Info */}
         <div className="p-6 sm:p-8 overflow-y-auto space-y-6 flex-1">
           <div>
-            <div className="text-xs font-bold text-blue-600 tracking-wider uppercase mb-1">
+            <div className="text-xs font-bold text-[#6D5DFB] tracking-wider uppercase mb-1">
               {t(current.categoryDe, current.categoryEn)}
             </div>
-            <h3 className="text-2xl font-black text-slate-900 tracking-tight">
+            <h3 className="text-2xl font-bold font-heading text-[#0B1020] tracking-tight">
               {current.title}
             </h3>
             <p className="text-sm text-slate-600 leading-relaxed mt-2">
@@ -212,10 +212,10 @@ export default function ProjectModal({
           </div>
 
           {/* Metrics Row */}
-          <div className="grid grid-cols-3 gap-3 bg-blue-50/60 p-4 rounded-2xl border border-blue-100">
+          <div className="grid grid-cols-3 gap-3 bg-[#F5F3FF] p-4 rounded-2xl border border-purple-100">
             {current.metrics.map((m, idx) => (
               <div key={idx} className="text-center">
-                <div className="text-lg sm:text-xl font-black text-slate-900">
+                <div className="text-lg sm:text-xl font-bold font-heading text-[#0B1020]">
                   {m.value}
                 </div>
                 <div className="text-[11px] text-slate-500 font-medium mt-0.5">
@@ -228,7 +228,7 @@ export default function ProjectModal({
           {/* Highlights */}
           <div>
             <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
-              <Sparkles className="w-4 h-4 text-orange-500" />
+              <Sparkles className="w-4 h-4 text-[#6D5DFB]" />
               <span>{t("Wichtigste Architekturlösungen", "Key Architectural Solutions")}</span>
             </h4>
             <div className="space-y-2">
@@ -271,7 +271,7 @@ export default function ProjectModal({
                 onClose();
                 onRequestSimilar();
               }}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-[#EA580C] hover:bg-[#C2410C] text-white text-sm font-semibold transition-colors shadow-sm cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-[#6D5DFB] hover:bg-[#5B4CE0] text-white text-sm font-semibold transition-colors shadow-sm cursor-pointer"
             >
               <span>{t("Kostenlose Beratung", "Get a Free Consultation")}</span>
               <ArrowRight className="w-4 h-4" />

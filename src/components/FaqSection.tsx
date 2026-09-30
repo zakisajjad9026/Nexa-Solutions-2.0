@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronDown, HelpCircle, MessageSquare, ArrowRight } from "lucide-react";
+import { ChevronDown, HelpCircle, ArrowRight, Sparkles } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 interface FaqSectionProps {
@@ -15,115 +15,114 @@ export default function FaqSection({ onOpenContact }: FaqSectionProps) {
   const faqs = [
     {
       q: t(
-        "Wie setzen sich die Kosten und Projektlaufzeiten zusammen?",
-        "How are project costs and delivery timelines calculated?"
+        "Wie setzen sich Kosten und Projektlaufzeiten bei Nexa zusammen?",
+        "How are project costs and development timelines structured?"
       ),
       a: t(
-        "Wir arbeiten nach transparenten Festpreisen auf Basis eines vorab definierten Anforderungskatalogs – ohne unerwartete Nachforderungen. Kleinere Webauftritte dauern typischerweise 2 bis 4 Wochen, mobile Apps 4 bis 8 Wochen und umfangreiche Unternehmenssysteme 6 bis 10 Wochen.",
-        "We operate on transparent fixed-price quotes based on a clearly defined project scope before work starts — zero surprise surcharges. Modern websites typically take 2 to 4 weeks, mobile applications 4 to 8 weeks, and custom enterprise systems 6 to 10 weeks."
+        "Wir arbeiten nach transparenten Festpreisen auf Basis eines verbindlichen Leistungsverzeichnisses – garantiert ohne überraschende Zusatzkosten. Kleinere Webanwendungen dauern typischerweise 3 bis 5 Wochen, mobile Apps 5 bis 9 Wochen und komplexe SaaS-Plattformen 8 bis 12 Wochen.",
+        "We operate on clear, fixed-price milestones defined in a written project scope before kickoff — zero unexpected surcharges. Tailored web apps typically take 3 to 5 weeks, mobile applications 5 to 9 weeks, and enterprise SaaS platforms 8 to 12 weeks."
       ),
     },
     {
       q: t(
-        "Gehört der Quellcode und die Datenbank nach Projektabschluss mir?",
-        "Who owns the source code and databases after completion?"
+        "Gehört der Quellcode und die Datenbank nach Projektabschluss zu 100 % mir?",
+        "Do I own 100% of the source code, databases, and IP upon delivery?"
       ),
       a: t(
-        "Ja, zu 100 %. Sie erhalten das uneingeschränkte Eigentumsrecht an allen erstellten Quellcodes, Datenbankstrukturen, Grafik-Assets und Zugängen. Wir binden Sie an keine proprietäre Plattform und erheben keine wiederkehrenden Lizenzgebühren.",
-        "Yes, 100%. You receive complete and unencumbered ownership rights to all source code, database architectures, graphic assets, and credentials. There is no vendor lock-in and no recurring platform royalties."
+        "Ja, ausnahmslos. Sie erhalten alle uneingeschränkten Nutzungs- und Eigentumsrechte an allen Codebasen, Datenbankmodellen, Schnittstellen und Zugängen. Es gibt keinerlei Vendor-Lock-in und keine wiederkehrenden Lizenzgebühren an Nexa.",
+        "Yes, unconditionally. You receive complete and unencumbered ownership rights to all source code repositories, databases, configuration files, and credentials. There is no vendor lock-in and zero recurring platform royalties."
       ),
     },
     {
       q: t(
-        "Wie stellen Sie DSGVO-Konformität und Datensicherheit sicher?",
-        "How do you ensure GDPR compliance and data privacy?"
+        "Mit wem kommuniziere ich während der Projektentwicklung?",
+        "Who is my direct point of contact during the project?"
       ),
       a: t(
-        "Alle von uns gehosteten Systeme liegen in ISO-27001-zertifizierten Rechenzentren in Deutschland (Frankfurt am Main) oder der Europäischen Union. Wir implementieren standardmäßig SSL-Verschlüsselung, Auftragsverarbeitungsverträge (AVV), Cookie-freie Analytics und GoBD-konforme Archivierung.",
-        "All systems deployed by us operate on ISO-27001 certified data centers in Germany (Frankfurt) or within the European Union. We enforce SSL encryption, Data Processing Agreements (DPA), cookie-free analytics, and GDPR-compliant storage by default."
+        "Sie sprechen direkt mit erfahrenen Senior-Software-Entwicklern und Tech Leads, die Ihr System aktiv programmieren. Keine unproduktiven Zwischenhändler oder wechselnde Kontakte.",
+        "You communicate directly with senior software engineers and technical leads who are actively architecting and writing your product. No bureaucratic intermediaries or rotating account managers."
       ),
     },
     {
       q: t(
-        "Bieten Sie laufende Wartung, Sicherheits-Updates und Support nach dem Launch an?",
-        "Do you provide ongoing maintenance, security updates and SLA support after launch?"
+        "Bieten Sie laufende Betreuung, Wartung und Sicherheitsupdates nach dem Launch?",
+        "Do you provide ongoing technical support, maintenance, and updates after launch?"
       ),
       a: t(
-        "Ja. Wir lassen Sie nach dem Go-Live nicht allein. Wir bieten flexible monatliche Betreuungspakete inklusive 24/7 Server-Monitoring, Sicherheits-Patches, kontinuierlichen Backups und garantierten Reaktionszeiten bei technischen Notfällen.",
-        "Yes. We support you well after go-live. We offer flexible monthly maintenance packages including 24/7 server health monitoring, security patches, automated off-site backups, and guaranteed SLA response times."
+        "Ja. Wir begleiten Sie langfristig mit flexiblen Wartungspaketen: Proaktives 24/7 Server-Monitoring, Sicherheits-Patches, automatisierte Backups und garantierte SLA-Reaktionszeiten bei technischen Notfällen.",
+        "Yes. We support our partners long-term with flexible maintenance SLA agreements: 24/7 infrastructure health monitoring, security patches, encrypted off-site backups, and guaranteed emergency response windows."
       ),
     },
     {
       q: t(
-        "Können Sie bestehende Systeme wie DATEV, ERP oder CRM-Tools anbinden?",
-        "Can you integrate with existing tools like DATEV, ERP, CRM or payment gateways?"
+        "Können Sie bestehende Systeme (z. B. CRM, ERP, Stripe, DATEV) nahtlos integrieren?",
+        "Can you integrate with existing tools like CRMs, ERPs, payment gateways, or custom APIs?"
       ),
       a: t(
-        "Selbstverständlich. Unsere Software-Architektur setzt auf standardisierte REST- und GraphQL-Schnittstellen sowie Webhooks. Wir haben umfangreiche Erfahrung bei der nahtlosen Anbindung von DATEV, Stripe, PayPal, HubSpot, Salesforce, n8n und individuellen REST-APIs.",
-        "Absolutely. Our software architecture leverages standardized REST and GraphQL APIs as well as webhooks. We have extensive experience interfacing with DATEV, Stripe, PayPal, HubSpot, Salesforce, n8n, and custom internal APIs."
+        "Selbstverständlich. Unsere Software-Architekturen setzen auf offene REST- und GraphQL-Schnittstellen sowie n8n-Automatisierungen. Wir binden Stripe, PayPal, HubSpot, Salesforce, DATEV und individuelle Unternehmens-APIs nahtlos ein.",
+        "Absolutely. Our systems leverage standardized REST and GraphQL endpoints as well as custom n8n automations. We have extensive experience interfacing with Stripe, PayPal, HubSpot, Salesforce, DATEV, and custom internal backends."
       ),
     },
     {
       q: t(
-        "Sind die entwickelten Websites und Apps barrierefrei nach dem BFSG-Gesetz?",
-        "Are your websites and apps compliant with the European Accessibility Act (BFSG)?"
+        "Wie stellen Sie DSGVO-Konformität und Datenschutz sicher?",
+        "How do you ensure GDPR compliance, data security, and European standards?"
       ),
       a: t(
-        "Ja. Ab Juni 2025 gilt in Deutschland und der EU das Barrierefreiheitsstärkungsgesetz (BFSG). Wir bauen Anwendungen nach den internationalen WCAG 2.1 AA Standards mit sauberer semantischer Struktur, Screenreader-Unterstützung und optimalen Kontrasten.",
-        "Yes. Starting June 2025, the European Accessibility Act (BFSG in Germany) is legally mandated for consumer and e-commerce services. We build all applications adhering to WCAG 2.1 AA standards with semantic HTML, screen reader support, and compliant contrast ratios."
+        "Wir entwickeln nach Best Practices für Datensparsamkeit, Ende-zu-Ende-Verschlüsselung (SSL/TLS), Cookie-freier Analytics und Hosting in zertifizierten europäischen Rechenzentren (z. B. Frankfurt am Main).",
+        "We build following strict data minimization principles, full SSL/TLS encryption, privacy-friendly analytics, and compliant European cloud hosting infrastructure."
       ),
     },
   ];
 
   return (
-    <section id="faq" className="py-20 md:py-24 bg-white relative overflow-hidden border-b border-slate-100">
+    <section id="faq" className="py-24 sm:py-28 bg-[#F8F8FC] border-y border-slate-200/80 relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 text-orange-600 text-xs font-bold tracking-wider uppercase mb-3">
-            <HelpCircle className="w-3.5 h-3.5" />
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-purple-200 bg-[#F5F3FF] text-[#6D5DFB] text-xs font-semibold tracking-wider uppercase mb-4">
+            <HelpCircle className="w-3.5 h-3.5 text-[#6D5DFB]" />
             <span>{t("HÄUFIG GESTELLTE FRAGEN", "FREQUENTLY ASKED QUESTIONS")}</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-black text-[#0F172A] tracking-tight leading-tight mb-4">
-            {t("Antworten auf Ihre wichtigsten Fragen", "Clear Answers to Your Key Questions")}
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading text-[#0B1020] tracking-tight leading-tight mb-4">
+            {t(
+              "Antworten auf die wichtigsten Fragen.",
+              "Answers to key questions."
+            )}
           </h2>
 
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
             {t(
-              "Alles, was Sie über unsere Zusammenarbeit, Kosten, Datenschutz und technische Umsetzung wissen möchten.",
-              "Everything you need to know regarding our workflow, fixed pricing, data privacy, and engineering process."
+              "Alles über Festpreise, Quellcode-Eigentum, Zusammenarbeit und Sicherheitsstandards bei Nexa Solutions.",
+              "Everything you need to know about scopes, code ownership, engineering collaboration, and timelines."
             )}
           </p>
         </div>
 
         {/* Accordion List */}
-        <div className="space-y-3.5 mb-12">
-          {faqs.map((faq, idx) => {
-            const isOpen = openIndex === idx;
+        <div className="space-y-3.5">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+
             return (
               <div
-                key={idx}
-                className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                  isOpen
-                    ? "bg-slate-50/80 border-orange-300/80 shadow-xs"
-                    : "bg-white border-slate-200 hover:border-slate-300"
-                }`}
+                key={index}
+                className="bg-white rounded-2xl border border-slate-200/90 shadow-2xs overflow-hidden transition-all duration-200"
               >
                 <button
-                  type="button"
-                  onClick={() => setOpenIndex(isOpen ? null : idx)}
-                  className="w-full px-6 py-5 flex items-center justify-between text-left gap-4 cursor-pointer"
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-slate-50/60 transition-colors"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-sm sm:text-base font-bold text-slate-900 leading-snug">
+                  <span className="text-sm sm:text-base font-bold font-heading text-[#0B1020]">
                     {faq.q}
                   </span>
                   <div
-                    className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${
+                    className={`w-7 h-7 rounded-full border flex items-center justify-center shrink-0 transition-transform duration-200 ${
                       isOpen
-                        ? "bg-orange-500 text-white rotate-180"
-                        : "bg-slate-100 text-slate-500"
+                        ? "bg-[#6D5DFB] border-[#6D5DFB] text-white rotate-180"
+                        : "bg-slate-50 border-slate-200 text-slate-500"
                     }`}
                   >
                     <ChevronDown className="w-4 h-4" />
@@ -131,8 +130,8 @@ export default function FaqSection({ onOpenContact }: FaqSectionProps) {
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100/60 animate-in fade-in duration-200">
-                    {faq.a}
+                  <div className="px-5 pb-6 sm:px-6 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-4 animate-in fade-in duration-150">
+                    <p>{faq.a}</p>
                   </div>
                 )}
               </div>
@@ -140,35 +139,24 @@ export default function FaqSection({ onOpenContact }: FaqSectionProps) {
           })}
         </div>
 
-        {/* Still have questions? Help Box */}
-        <div className="p-6 rounded-2xl bg-blue-50/60 border border-blue-200/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0">
-              <MessageSquare className="w-5 h-5" />
-            </div>
-            <div>
-              <h4 className="text-sm font-bold text-slate-900">
-                {t("Haben Sie eine spezielle technische Frage?", "Have a specific technical question?")}
-              </h4>
-              <p className="text-xs text-slate-600">
-                {t(
-                  "Sprechen Sie direkt mit einem unserer Tech Leads – unverbindlich und kostenlos.",
-                  "Speak directly with one of our tech leads — complimentary and without obligation."
-                )}
-              </p>
-            </div>
-          </div>
-
-          {onOpenContact && (
+        {/* Still Have Questions CTA */}
+        {onOpenContact && (
+          <div className="mt-12 text-center">
+            <p className="text-xs sm:text-sm text-slate-500 mb-3">
+              {t(
+                "Haben Sie eine spezielle technische Frage zu Ihrem Projekt?",
+                "Have a specific technical question about your upcoming project?"
+              )}
+            </p>
             <button
               onClick={onOpenContact}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold transition-colors cursor-pointer shrink-0"
+              className="inline-flex items-center gap-2 text-sm font-bold text-[#6D5DFB] hover:text-[#5B4CE0] cursor-pointer"
             >
-              <span>{t("Frage stellen", "Ask a Question")}</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <span>{t("Direkt mit einem Ingenieur sprechen", "Speak directly with an engineer")}</span>
+              <ArrowRight className="w-4 h-4" />
             </button>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </section>
   );

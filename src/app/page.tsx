@@ -4,20 +4,16 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import AuthorizedPartners from "@/components/AuthorizedPartners";
+import TechEcosystem from "@/components/TechEcosystem";
 import ServicesSection from "@/components/ServicesSection";
-import AutomationShowcase from "@/components/AutomationShowcase";
-import ProcessSection from "@/components/ProcessSection";
 import FeaturedProjects from "@/components/FeaturedProjects";
+import AutomationShowcase from "@/components/AutomationShowcase";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import ProcessSection from "@/components/ProcessSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import FaqSection from "@/components/FaqSection";
 import CtaBanner from "@/components/CtaBanner";
 import Footer from "@/components/Footer";
-
-import TrustGuarantees from "@/components/TrustGuarantees";
-import WhyChooseUs from "@/components/WhyChooseUs";
-import BusinessSystems from "@/components/BusinessSystems";
-import FaqSection from "@/components/FaqSection";
-import BookingSection from "@/components/BookingSection";
 
 import ContactModal from "@/components/ContactModal";
 import VideoModal from "@/components/VideoModal";
@@ -47,31 +43,31 @@ export default function Home() {
   };
 
   const handleViewAllProjects = () => {
-    setSelectedProject("aura-masale");
+    setSelectedProject("meagle360");
     setProjectModalOpen(true);
   };
 
-  // Shared scroll animation variants
+  // Restrained, premium scroll animation
   const sectionVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 24 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" as const },
+      transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
     },
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-[#0F172A] selection:bg-orange-500 selection:text-white">
-      {/* Top Navbar */}
+    <div className="min-h-screen flex flex-col bg-white text-[#0B1020] selection:bg-[#6D5DFB] selection:text-white">
+      {/* 01. Simplified Premium Navbar */}
       <Navbar onOpenContact={() => handleOpenContact()} />
 
       <main className="flex-1">
-        {/* 1. Hero Section */}
+        {/* 02. Redesigned Hero: Clear Statement + Product Composition */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
           <HeroSection
             onOpenContact={() => handleOpenContact()}
@@ -79,81 +75,31 @@ export default function Home() {
           />
         </motion.div>
 
-        {/* 2. Authorized Partner with Leading Platforms */}
+        {/* 03. Trusted By & Proven Tech Ecosystem */}
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
+          viewport={{ once: true, margin: "-40px" }}
           variants={sectionVariants}
         >
-          <AuthorizedPartners />
+          <TechEcosystem />
         </motion.div>
 
-        {/* 3. Trust Guarantees – German Quality Standards */}
+        {/* 04. What We Build: Asymmetric Visual Capabilities Layout */}
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          variants={sectionVariants}
-        >
-          <TrustGuarantees />
-        </motion.div>
-
-        {/* 4. Services Section */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
+          viewport={{ once: true, margin: "-40px" }}
           variants={sectionVariants}
         >
           <ServicesSection onSelectService={handleOpenService} />
         </motion.div>
 
-        {/* 5. Why Choose Us */}
+        {/* 05. Featured Work: Centerpiece Case Studies with Real Screenshots & Metrics */}
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          variants={sectionVariants}
-        >
-          <WhyChooseUs onOpenContact={() => handleOpenContact()} />
-        </motion.div>
-
-        {/* 6. Turn Manual Work Into Smart Automation */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          variants={sectionVariants}
-        >
-          <AutomationShowcase onExploreAutomation={() => handleOpenContact("AI Automation & n8n Workflows")} />
-        </motion.div>
-
-        {/* 7. Custom Business Systems */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          variants={sectionVariants}
-        >
-          <BusinessSystems onOpenContact={() => handleOpenContact()} />
-        </motion.div>
-
-        {/* 8. A Simple Process for Successful Projects */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          variants={sectionVariants}
-        >
-          <ProcessSection />
-        </motion.div>
-
-        {/* 9. Some of Our Latest Projects */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
+          viewport={{ once: true, margin: "-40px" }}
           variants={sectionVariants}
         >
           <FeaturedProjects
@@ -162,48 +108,68 @@ export default function Home() {
           />
         </motion.div>
 
-        {/* 10. What Our Clients Say (Testimonials) */}
+        {/* 06. AI & Workflow Studio: Interactive Pipeline & Differentiator */}
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
+          viewport={{ once: true, margin: "-40px" }}
+          variants={sectionVariants}
+        >
+          <AutomationShowcase onExploreAutomation={() => handleOpenContact("AI Automation & n8n Workflows")} />
+        </motion.div>
+
+        {/* 07. Why Nexa: Built Around Your Business & Senior Engineering */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-40px" }}
+          variants={sectionVariants}
+        >
+          <WhyChooseUs onOpenContact={() => handleOpenContact()} />
+        </motion.div>
+
+        {/* 08. How We Work: 5-Step Process Timeline */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-40px" }}
+          variants={sectionVariants}
+        >
+          <ProcessSection />
+        </motion.div>
+
+        {/* 09. Verified Client Testimonials */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-40px" }}
           variants={sectionVariants}
         >
           <TestimonialsSection />
         </motion.div>
 
-        {/* 11. FAQ Section */}
+        {/* 10. Frequently Asked Questions */}
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
+          viewport={{ once: true, margin: "-40px" }}
           variants={sectionVariants}
         >
-          <FaqSection />
+          <FaqSection onOpenContact={() => handleOpenContact()} />
         </motion.div>
 
-        {/* 12. Book a Free Consultation */}
+        {/* 11. Final High-Conversion CTA Banner */}
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          variants={sectionVariants}
-        >
-          <BookingSection onOpenContact={() => handleOpenContact()} />
-        </motion.div>
-
-        {/* 13. Have a Project in Mind? (CTA Banner) */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
+          viewport={{ once: true, margin: "-40px" }}
           variants={sectionVariants}
         >
           <CtaBanner onOpenContact={() => handleOpenContact()} />
         </motion.div>
       </main>
 
-      {/* 9. Footer */}
+      {/* 12. Clean, Minimalist Footer */}
       <Footer />
 
       {/* Interactive Modals */}

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ArrowRight, UserCheck, Zap, Clock, Diamond, ShieldCheck } from "lucide-react";
+import { ArrowRight, ShieldCheck, Code2, Users, Layers, KeyRound } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 interface WhyChooseUsProps {
@@ -11,95 +11,139 @@ interface WhyChooseUsProps {
 export default function WhyChooseUs({ onOpenContact }: WhyChooseUsProps) {
   const { t } = useLanguage();
 
-  const features = [
+  const reasons = [
     {
-      icon: UserCheck,
-      title: t("Kundenorientierte Lösungen", "Client Focused Solutions"),
-      description: t("Ihr Geschäftserfolg steht bei uns an erster Stelle.", "Your success is our priority."),
+      icon: Code2,
+      titleDe: "Individuell statt Template-Baukasten",
+      titleEn: "Built around your business",
+      descriptionDe:
+        "Keine Standard-Vorlagen oder unnötige Komplexität. Wir entwickeln Software exakt passend zu Ihren spezifischen operativen Anforderungen und Prozessen.",
+      descriptionEn:
+        "No cookie-cutter templates or framework bloat. We engineer systems specifically tailored to your operational workflows and business objectives.",
+      tagDe: "Maßgeschneidert",
+      tagEn: "Custom Scope",
     },
     {
-      icon: Zap,
-      title: t("Moderne Technologien", "Modern Technologies"),
-      description: t("Immer einen Schritt voraus durch zukunftssichere Software.", "Always ahead with future-proof, maintainable software."),
+      icon: Users,
+      titleDe: "Direkter Senior-Entwicklerkontakt",
+      titleEn: "Senior technical involvement",
+      descriptionDe:
+        "Keine bürokratischen Zwischeninstanzen oder unerfahrene Junior-Teams. Sie arbeiten direkt mit Senior-Ingenieuren, die Ihre Architektur entwerfen und umsetzen.",
+      descriptionEn:
+        "Direct access to the engineers building your product. No bureaucratic account managers or lost-in-translation requirements.",
+      tagDe: "Keine Zwischenhändler",
+      tagEn: "Direct Access",
     },
     {
-      icon: Clock,
-      title: t("Pünktliche Lieferung", "On-Time Delivery"),
-      description: t("Verbindliche Meilensteine und Termintreue ohne Ausreden.", "Reliable milestones and on-time delivery with zero excuses."),
+      icon: Layers,
+      titleDe: "Entwickelt für Stabilität & Skalierung",
+      titleEn: "Designed for scale",
+      descriptionDe:
+        "Modulare Architekturen, strenge Typensicherheit und moderne Cloud-Infrastruktur, die problemlos mit Ihrem Unternehmenswachstum skaliert.",
+      descriptionEn:
+        "Modular software architectures, strict typing, and cloud-native standards designed to support 10x business growth without friction.",
+      tagDe: "Zukunftssicher",
+      tagEn: "Modern Tech",
     },
     {
-      icon: Diamond,
-      title: t("Langfristige Partnerschaft", "Long-Term Partnership"),
-      description: t("Nachhaltiger Support und kontinuierliche Skalierung.", "Ongoing technical support and continuous business scaling."),
+      icon: KeyRound,
+      titleDe: "100% Quellcode- & Dateneigentum",
+      titleEn: "100% Code & IP ownership",
+      descriptionDe:
+        "Sie besitzen uneingeschränkt alle Rechte an Code, Datenbanken und Infrastruktur. Kein Vendor-Lock-in und keine wiederkehrenden Lizenzgebühren.",
+      descriptionEn:
+        "You own 100% of your source code, databases, and intellectual property upon delivery. Zero vendor lock-in and zero ongoing royalty cuts.",
+      tagDe: "Volle Kontrolle",
+      tagEn: "Full Rights",
     },
   ];
 
   return (
-    <section id="about" className="py-24 bg-[#090D16] text-white relative overflow-hidden border-b border-white/5">
-      {/* Background Subtle Orange Glow */}
-      <div className="absolute top-1/2 -left-20 w-[450px] h-[450px] bg-orange-600/10 rounded-full blur-3xl pointer-events-none -z-0" />
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-3xl pointer-events-none -z-0" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left Column: Heading and About CTA */}
-          <div className="lg:col-span-5 flex flex-col items-start">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/10 bg-white/5 text-slate-300 text-xs font-semibold tracking-wider uppercase mb-6">
-              <span>{t("ÜBER NEXA SOLUTIONS", "ABOUT NEXA SOLUTIONS")}</span>
+    <section id="why-nexa" className="py-24 sm:py-28 bg-white relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-purple-200 bg-[#F5F3FF] text-[#6D5DFB] text-xs font-semibold tracking-wider uppercase mb-4">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#6D5DFB]" />
+              <span>{t("WARUM NEXA SOLUTIONS", "WHY NEXA SOLUTIONS")}</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-6">
-              {t("Ihr", "Your")}{" "}
-              <span className="text-gradient-orange">{t("Wachstum", "Growth")}</span> <br />
-              {t("Unsere Priorität", "Our Priority")}
-            </h2>
-
-            <p className="text-slate-400 text-base leading-relaxed mb-8 max-w-md">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading text-[#0B1020] tracking-tight leading-tight">
               {t(
-                "Wir verbinden deutsche Qualitätsstandards, intuitive User Experience und moderne KI-Technologie, um digitale Produkte zu entwickeln, die einen messbaren Unterschied für Ihr Unternehmen machen.",
-                "We combine German quality standards, intuitive user experience, and modern AI engineering to build digital products that make a measurable impact on your business."
+                "Technologie, die Ihrem Geschäftserfolg dient.",
+                "Technology engineered around business outcomes."
               )}
-            </p>
-
-            {onOpenContact && (
-              <button
-                onClick={onOpenContact}
-                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-white text-slate-900 text-sm font-semibold hover:bg-orange-500 hover:text-white transition-all duration-300 shadow-md cursor-pointer group"
-              >
-                <span>{t("Erstgespräch anfragen", "Schedule a Consultation")}</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
-            )}
+            </h2>
           </div>
 
-          {/* Right Column: 2x2 Bento Grid */}
-          <div className="lg:col-span-7">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {features.map((item, index) => {
-                const Icon = item.icon;
-                return (
-                  <div
-                    key={index}
-                    className="p-7 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange-500/40 hover:bg-white/[0.07] transition-all duration-300 flex flex-col justify-between group"
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400 mb-6 group-hover:scale-110 group-hover:bg-orange-500 group-hover:text-white transition-all duration-300">
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-md lg:text-right">
+            {t(
+              "Wir kombinieren saubere Software-Architektur, unternehmerisches Denken und schnelle Umsetzungszyklen für messbare Ergebnisse.",
+              "We combine rigorous software architecture, commercial thinking, and rapid iteration to deliver measurable results on time and budget."
+            )}
+          </p>
+        </div>
+
+        {/* 4 Feature Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          {reasons.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={index}
+                className="p-8 sm:p-10 rounded-3xl bg-[#F8F8FC] border border-slate-200/90 hover:border-slate-300 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200/80 shadow-2xs flex items-center justify-center text-[#6D5DFB] group-hover:scale-105 group-hover:bg-[#6D5DFB] group-hover:text-white transition-all duration-300">
                       <Icon className="w-6 h-6" />
                     </div>
 
-                    <div>
-                      <h3 className="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
-                        {item.title}
-                      </h3>
-                      <p className="text-sm text-slate-400 leading-normal">
-                        {item.description}
-                      </p>
-                    </div>
+                    <span className="px-3 py-1 rounded-full bg-white text-slate-600 text-xs font-medium border border-slate-200">
+                      {t(item.tagDe, item.tagEn)}
+                    </span>
                   </div>
-                );
-              })}
-            </div>
-          </div>
+
+                  <h3 className="text-xl sm:text-2xl font-bold font-heading text-[#0B1020] mb-3 group-hover:text-[#6D5DFB] transition-colors">
+                    {t(item.titleDe, item.titleEn)}
+                  </h3>
+
+                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+                    {t(item.descriptionDe, item.descriptionEn)}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
+
+        {/* Subtle Bottom Trust Assurance */}
+        {onOpenContact && (
+          <div className="mt-14 p-6 sm:p-8 rounded-2xl bg-[#F8F8FC] border border-slate-200/90 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3 text-center sm:text-left">
+              <div className="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center shrink-0">
+                <ShieldCheck className="w-5 h-5" />
+              </div>
+              <div>
+                <span className="text-sm font-bold text-slate-900 block">
+                  {t("Transparente Festpreis-Garantie & Meilensteine", "Transparent Scope & Fixed Price Predictability")}
+                </span>
+                <span className="text-xs text-slate-500">
+                  {t("Verbindlicher Leistungsumfang vor Projektbeginn ohne versteckte Mehrkosten.", "Clear written milestone scope before kickoff with zero surprise surcharges.")}
+                </span>
+              </div>
+            </div>
+
+            <button
+              onClick={onOpenContact}
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#0B1020] hover:bg-[#1E293B] text-white text-xs sm:text-sm font-semibold transition-all shrink-0 cursor-pointer shadow-sm"
+            >
+              <span>{t("Erstgespräch anfragen", "Schedule Discovery Call")}</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

@@ -155,10 +155,10 @@ export default function ServiceModal({ serviceId, onClose, onGetQuote }: Service
         {/* Scrollable Content */}
         <div className="p-6 sm:p-8 overflow-y-auto space-y-6 flex-1">
           <div>
-            <div className="text-xs font-semibold text-orange-600 tracking-wider uppercase mb-1">
+            <div className="text-xs font-semibold text-[#6D5DFB] tracking-wider uppercase mb-1">
               {t("UNSERE SPEZIALISIERUNG", "OUR SPECIALIZATION")}
             </div>
-            <h3 className="text-2xl font-black text-slate-900 tracking-tight">
+            <h3 className="text-2xl font-bold font-heading text-[#0B1020] tracking-tight">
               {title}
             </h3>
             <p className="text-sm font-medium text-slate-500 mt-0.5">
@@ -173,13 +173,13 @@ export default function ServiceModal({ serviceId, onClose, onGetQuote }: Service
           {/* Deliverables */}
           <div>
             <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-3 flex items-center gap-1.5">
-              <Layers className="w-4 h-4 text-orange-500" />
+              <Layers className="w-4 h-4 text-[#6D5DFB]" />
               <span>{t("Was Sie erhalten", "What You Receive")}</span>
             </h4>
             <div className="space-y-2">
               {(Array.isArray(deliverables) ? deliverables : current.deliverablesDe).map((item, idx) => (
                 <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
-                  <CheckCircle2 className="w-4 h-4 text-orange-500 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#6D5DFB] shrink-0 mt-0.5" />
                   <span>{item}</span>
                 </div>
               ))}
@@ -189,7 +189,7 @@ export default function ServiceModal({ serviceId, onClose, onGetQuote }: Service
           {/* Tech Stack Pills */}
           <div>
             <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-3 flex items-center gap-1.5">
-              <Cpu className="w-4 h-4 text-orange-500" />
+              <Cpu className="w-4 h-4 text-[#6D5DFB]" />
               <span>{t("Technologien & Tools", "Technologies & Tools")}</span>
             </h4>
             <div className="flex flex-wrap gap-2">
@@ -218,7 +218,7 @@ export default function ServiceModal({ serviceId, onClose, onGetQuote }: Service
                 onClose();
                 onGetQuote(title);
               }}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-[#111827] text-white text-sm font-semibold hover:bg-orange-600 transition-colors shadow-md cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-[#6D5DFB] hover:bg-[#5B4CE0] text-white text-sm font-semibold transition-colors shadow-md cursor-pointer"
             >
               <span>{t("Angebot anfordern", "Get a Quote")}</span>
               <ArrowRight className="w-4 h-4" />

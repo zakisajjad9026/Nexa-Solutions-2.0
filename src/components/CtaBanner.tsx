@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
-import { ArrowRight, Lightbulb, Palette, Code, Rocket, Send } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Sparkles, CheckCircle2, Calendar, ShieldCheck, Clock } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 interface CtaBannerProps {
@@ -13,93 +13,68 @@ export default function CtaBanner({ onOpenContact }: CtaBannerProps) {
   const { t } = useLanguage();
 
   return (
-    <section id="contact-banner" className="py-16 md:py-24 bg-white relative overflow-hidden">
+    <section id="cta" className="py-20 sm:py-28 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl bg-gradient-to-r from-blue-50/70 via-indigo-50/30 to-orange-50/50 border border-slate-200/90 p-8 sm:p-12 lg:p-14 overflow-hidden shadow-xs">
-          {/* Subtle Ambient Glows */}
-          <div className="absolute top-0 right-1/4 w-80 h-80 bg-blue-100/40 rounded-full blur-3xl pointer-events-none -z-0" />
-          <div className="absolute bottom-0 right-0 w-80 h-80 bg-orange-100/40 rounded-full blur-3xl pointer-events-none -z-0" />
+        <div className="relative rounded-3xl bg-[#0B1020] text-white p-8 sm:p-14 lg:p-18 overflow-hidden shadow-2xl border border-white/10">
+          {/* Subtle Ambient Violet Glows */}
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-[#6D5DFB]/25 via-purple-700/10 to-transparent rounded-full blur-3xl pointer-events-none -z-0" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-indigo-900/20 via-[#6D5DFB]/10 to-transparent rounded-full blur-3xl pointer-events-none -z-0" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
-            {/* Left Column */}
-            <div className="lg:col-span-7 flex flex-col items-start">
-              <div className="inline-flex items-center gap-1.5 text-blue-600 text-xs font-bold tracking-wider uppercase mb-3.5">
-                <span>|&rarr;</span>
-                <span>{t("LASS UNS ZUSAMMEN BAUEN", "LET'S BUILD TOGETHER")}</span>
-              </div>
-
-              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-[#0F172A] tracking-tight leading-tight mb-4">
-                {t("Haben Sie ein Projekt im Sinn?", "Have a Project in Mind?")}
-              </h2>
-
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-lg mb-8">
-                {t(
-                  "Ob Sie eine Website, eine mobile App oder KI-Automatisierung benötigen — wir helfen Ihnen. Holen Sie sich eine kostenlose Beratung und lassen Sie uns Ihre Ideen besprechen.",
-                  "Whether you need a website, a mobile app or AI automation — we're here to help. Get a free consultation and let's discuss your ideas."
-                )}
-              </p>
-
-              <div className="flex flex-wrap items-center gap-3.5 sm:gap-4">
-                <button
-                  onClick={onOpenContact}
-                  className="inline-flex items-center gap-2 px-6 sm:px-7 py-3 rounded-full bg-[#EA580C] hover:bg-[#C2410C] text-white text-xs sm:text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-md hover:shadow-orange-500/25 group cursor-pointer"
-                >
-                  <span>{t("Kostenlose Beratung", "Get a Free Consultation")}</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
-
-                <button
-                  onClick={onOpenContact}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-slate-300 bg-white hover:bg-slate-50 text-slate-800 text-xs sm:text-sm font-semibold transition-all duration-300 shadow-2xs cursor-pointer"
-                >
-                  <span>{t("Kontakt aufnehmen", "Contact Us")}</span>
-                </button>
-              </div>
+          <div className="relative z-10 max-w-3xl">
+            {/* Pill Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-purple-400/30 bg-[#6D5DFB]/15 text-[#A78BFA] text-xs font-semibold tracking-wider uppercase mb-6">
+              <Sparkles className="w-3.5 h-3.5 text-[#A78BFA]" />
+              <span>{t("ERSTGESPRÄCH VEREINBAREN", "START A PROJECT")}</span>
             </div>
 
-            {/* Right Column: Illustration */}
-            <div className="lg:col-span-5 relative flex items-center justify-center min-h-[300px] sm:min-h-[340px]">
-              <div className="absolute top-2 right-4 sm:right-8 z-20 transform rotate-12 text-blue-500 animate-bounce duration-1000">
-                <Send className="w-6 h-6" />
-              </div>
+            {/* Headline */}
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading tracking-tight leading-[1.12] mb-5">
+              {t(
+                "Haben Sie ein Projekt, das echten Mehrwert schafft?",
+                "Have a problem worth solving?"
+              )}
+            </h2>
 
-              <div className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-full overflow-hidden border-4 border-white shadow-xl bg-gradient-to-b from-blue-100 to-indigo-100 shrink-0">
-                <Image
-                  src="/images/cta-developer.jpg"
-                  alt="Nexa Solutions Developer"
-                  fill
-                  className="object-cover object-top scale-110"
-                />
-              </div>
+            {/* Subtext */}
+            <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl">
+              {t(
+                "Erzählen Sie uns von Ihrer Idee. Wir unterstützen Sie bei der technischen Konzeption, Architektur und den nächsten Schritten – unverbindlich und direkt mit einem Senior-Entwickler.",
+                "Tell us what you're building. We'll help you figure out the software architecture, technical feasibility, timeline, and exact next steps."
+              )}
+            </p>
 
-              {/* Floating Step Badges */}
-              <div className="absolute top-2 left-6 sm:left-10 bg-white/95 backdrop-blur-xs border border-blue-200/90 rounded-xl px-3 py-1.5 shadow-md flex items-center gap-1.5 text-xs font-bold text-slate-800 animate-in fade-in">
-                <div className="w-5 h-5 rounded-md bg-blue-50 text-blue-600 flex items-center justify-center">
-                  <Lightbulb className="w-3 h-3" />
-                </div>
-                <span>{t("Idee", "Idea")}</span>
-              </div>
+            {/* Actions */}
+            <div className="flex flex-wrap items-center gap-4 mb-10">
+              <button
+                onClick={onOpenContact}
+                className="inline-flex items-center gap-2.5 px-7 py-4 rounded-full bg-[#6D5DFB] hover:bg-[#5B4CE0] text-white text-sm sm:text-base font-semibold transition-all duration-200 shadow-[0_4px_20px_rgba(109,93,251,0.35)] hover:shadow-[0_6px_28px_rgba(109,93,251,0.5)] group cursor-pointer"
+              >
+                <span>{t("Gespräch vereinbaren", "Start a Conversation")}</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
 
-              <div className="absolute top-12 right-2 sm:right-6 bg-white/95 backdrop-blur-xs border border-orange-200/90 rounded-xl px-3 py-1.5 shadow-md flex items-center gap-1.5 text-xs font-bold text-slate-800 animate-in fade-in">
-                <div className="w-5 h-5 rounded-md bg-orange-50 text-orange-600 flex items-center justify-center">
-                  <Palette className="w-3 h-3" />
-                </div>
-                <span>{t("Design", "Design")}</span>
-              </div>
+              <Link
+                href="#work"
+                className="inline-flex items-center gap-2 px-6 py-4 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-white text-sm sm:text-base font-semibold transition-all duration-200 cursor-pointer"
+              >
+                <span>{t("Ausgewählte Arbeiten ansehen", "View Selected Work")}</span>
+              </Link>
+            </div>
 
-              <div className="absolute bottom-16 right-0 sm:right-2 bg-white/95 backdrop-blur-xs border border-indigo-200/90 rounded-xl px-3 py-1.5 shadow-md flex items-center gap-1.5 text-xs font-bold text-slate-800 animate-in fade-in">
-                <div className="w-5 h-5 rounded-md bg-indigo-50 text-indigo-600 flex items-center justify-center">
-                  <Code className="w-3 h-3" />
-                </div>
-                <span>{t("Entwickeln", "Develop")}</span>
-              </div>
-
-              <div className="absolute bottom-4 right-10 sm:right-16 bg-white/95 backdrop-blur-xs border border-emerald-200/90 rounded-xl px-3 py-1.5 shadow-md flex items-center gap-1.5 text-xs font-bold text-slate-800 animate-in fade-in">
-                <div className="w-5 h-5 rounded-md bg-emerald-50 text-emerald-600 flex items-center justify-center">
-                  <Rocket className="w-3 h-3" />
-                </div>
-                <span>{t("Launchen", "Launch")}</span>
-              </div>
+            {/* Reassurance Indicators */}
+            <div className="flex flex-wrap items-center gap-6 sm:gap-8 text-xs sm:text-sm text-slate-400 pt-6 border-t border-white/10">
+              <span className="flex items-center gap-2">
+                <Clock className="w-4 h-4 text-[#A78BFA] shrink-0" />
+                {t("30 Minuten Erstgespräch", "30-Minute Discovery Call")}
+              </span>
+              <span className="flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-[#A78BFA] shrink-0" />
+                {t("100% unverbindlich", "Zero Commitment")}
+              </span>
+              <span className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#A78BFA] shrink-0" />
+                {t("Direkter Ingenieurskontakt", "Direct Senior Tech Lead")}
+              </span>
             </div>
           </div>
         </div>
